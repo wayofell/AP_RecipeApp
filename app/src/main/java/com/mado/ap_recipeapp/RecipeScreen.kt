@@ -9,7 +9,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
-fun RecipeScreen(modifier: Modifier = Modifier) {
+fun RecipeScreen(modifier: Modifier = Modifier, navigateToDetail: (Category) -> Unit) {
     val recipeViewModel: MainViewModel = viewModel()
     val viewState by recipeViewModel.categoriesState
 
@@ -26,7 +26,7 @@ fun RecipeScreen(modifier: Modifier = Modifier) {
                 )
             }
             else -> {
-                CategoryScreen(categories = viewState.list)
+                CategoryScreen(categories = viewState.list, navigateToDetail = navigateToDetail)
             }
         }
     }
